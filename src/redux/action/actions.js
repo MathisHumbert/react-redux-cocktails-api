@@ -1,0 +1,3 @@
+const GET_COCKTAILS = 'GET_COCKTAILS';
+
+export { GET_COCKTAILS };
