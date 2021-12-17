@@ -8,7 +8,9 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 const CocktailList = () => {
   const dispatch = useDispatch();
-  const { cocktails, loading } = useSelector((state) => state.cocktailReducer);
+  const { cocktails, loading, inputValue } = useSelector(
+    (state) => state.cocktailReducer
+  );
 
   React.useEffect(() => {
     const fetchData = async (url) => {
@@ -17,13 +19,19 @@ const CocktailList = () => {
         const data = await response.json();
         // send the data to my redux
         dispatch(getCocktails(data.drinks));
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
-    fetchData(url);
-  }, []);
+    fetchData(`${url}${inputValue}`);
+  }, [inputValue, dispatch]);
 
   if (loading) {
     return <Loading />;
+  }
+
+  if (!cocktails) {
+    return <h1>No Cocktails Matched Your Search Criteria</h1>;
   }
 
   return (
