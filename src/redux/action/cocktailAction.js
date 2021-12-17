@@ -1,7 +1,11 @@
-import { GET_COCKTAILS } from './actions';
+import { GET_COCKTAILS, GET_SINGLE_COCKTAIL } from './actions';
 
 const getCocktails = (data) => {
   return (dispatch) => dispatch({ type: GET_COCKTAILS, payload: data });
 };
 
-export { getCocktails };
+const getSingleCocktail = (data) => {
+  return (dispatch) => dispatch({ type: GET_SINGLE_COCKTAIL, payload: data });
+};
+
+export { getCocktails, getSingleCocktail };

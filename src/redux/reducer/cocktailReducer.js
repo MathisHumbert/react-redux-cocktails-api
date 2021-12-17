@@ -1,7 +1,8 @@
-import { GET_COCKTAILS } from '../action/actions';
+import { GET_COCKTAILS, GET_SINGLE_COCKTAIL } from '../action/actions';
 
 const initialState = {
   cocktails: [],
+  single_cocktail: [],
   loading: true,
   error: false,
 };
@@ -14,6 +15,9 @@ const cocktailReducer = (state = initialState, action) => {
       loading: false,
       error: false,
     };
+  }
+  if (action.type === GET_SINGLE_COCKTAIL) {
+    return { ...state, single_cocktail: action.payload };
   }
   return state;
 };

@@ -9,7 +9,6 @@ const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 const CocktailList = () => {
   const dispatch = useDispatch();
   const { cocktails, loading } = useSelector((state) => state.cocktailReducer);
-  console.log(cocktails, loading);
 
   React.useEffect(() => {
     const fetchData = async (url) => {
@@ -32,7 +31,7 @@ const CocktailList = () => {
       <h2 className="section-title">cocktailts</h2>
       <div className="cocktails-center">
         {cocktails.map((cocktail) => {
-          console.log(cocktail);
+          return <Cocktail cocktail={cocktail} key={cocktail.idDrink} />;
         })}
       </div>
     </section>

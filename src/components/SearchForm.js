@@ -2,9 +2,9 @@ import React from 'react';
 
 const SearchForm = () => {
   return (
-    <div>
-      <h2>search form component</h2>
-    </div>
+    <section className="section search">
+      <form>search form component</form>
+    </section>
   );
 };
 
